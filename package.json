@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "axios": "^1.10.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.2",
+    "redis": "^5.6.0",
+    "sequelize": "^6.37.7",
+    "sequelize-typescript": "^2.1.6",
+    "stripe": "^18.3.0",
+    "zod": "^4.0.5"
+  },
+  "scripts": {
+    "dev": "nodemon src/app.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/redis": "^4.0.10",
+    "@types/sequelize": "^4.28.20",
+    "@types/stripe": "^8.0.416",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
