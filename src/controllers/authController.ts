@@ -6,7 +6,7 @@ export class authController {
         try{
             const {email,password}= req.body;
             const user = await authService.authenticateUser(email,password)
-            return res.status(200).json({message: 'User authenticated successfully', token:user});
+            return res.status(200).json({message: 'User authenticated successfully',user});
         }catch (error) {
             return res.status(400).json({ error: error.message });
         }

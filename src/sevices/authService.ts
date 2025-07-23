@@ -8,7 +8,7 @@ dotenv.config();
 
 
 export class authService {
-    static async authenticateUser(email:string, password: string):Promise<string | null> {
+    static async authenticateUser(email:string, password: string):Promise<Object | null> {
         const user = await UserModel.findOne({ where: { email } });
         if (!user) {
             throw new Error('User not found');
@@ -21,6 +21,6 @@ export class authService {
         
         const token = sign({ id:user.id }, process.env.SECRETE || 'default',{expiresIn: '1h'});
 
-        return token;
+        return {user:{id:user.id,email:user.email},token};
     }
 }
