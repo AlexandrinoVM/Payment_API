@@ -1,12 +1,9 @@
 import { sequelize } from "./config/database";
 import app from "./app";
-
+import seedPaymentStatuses from "./utils/PaymentStatusSeeds";
+import seedProducts from "./utils/productsServiceSeeds";
 
 const port = process.env.PORT || 3000;
-
-app.listen(port,() => {
-  console.log(`✅ Server running on port ${port}`);
-})
 
 async function initializeDatabase() {
     try {
@@ -19,9 +16,16 @@ async function initializeDatabase() {
                 console.error('Error trying to synchronize tables:', error);
             });
         console.log('✅ Database connection established successfully.');
+
+        seedPaymentStatuses();
+        seedProducts();
     } catch (error) {
         console.error('❌ Unable to connect to the database:', error);
     }
 }
 
-initializeDatabase();
+initializeDatabase().then(() => {
+  app.listen(port, () => {
+    console.log(`✅ Server running on port ${port}`);
+  });
+});

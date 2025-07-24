@@ -8,11 +8,20 @@ export interface authUserType extends UserType {
     token: string;
 }
 
+
+enum paymentMethodEnum{
+  CREDIT_CARD = 'credit_card',
+  PAYPAL = 'paypal',
+  BANK_TRANSFER = 'bank_transfer',
+  CRYPTOCURRENCY = 'cryptocurrency',
+  CASH = 'cash',
+  PIX = 'pix',
+}
+
+
 export interface PaymentOrder {
-    id: number;
-    userId: number;
-    amount: number;
-    status: string;
+    paymentMethod: paymentMethodEnum;
+    productsIds: number[];
 }
 
 export interface Invoice {
@@ -23,10 +32,8 @@ export interface Invoice {
 }
 
 export interface TransactionLog {
-    id: number;
     paymentOrderId: number;
     transactionId: string;
-    timestamp: Date;
 }
 
 export interface Refund {
@@ -43,7 +50,6 @@ export interface PaymentStatus {
 }
 
 export interface ProductService {
-    id: number;
     name: string;
     description: string;
     price: number;
