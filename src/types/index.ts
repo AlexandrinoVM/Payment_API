@@ -20,7 +20,9 @@ enum paymentMethodEnum{
 
 
 export interface PaymentOrder {
+    amount: number;
     paymentMethod: paymentMethodEnum;
+    paymentStatusId?: number; // Optional, will default to pending
     productsIds: number[];
 }
 

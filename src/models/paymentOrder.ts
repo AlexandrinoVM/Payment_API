@@ -10,7 +10,7 @@ enum PaymentOrderStatus {
   REFUNDED = 'refunded',
 }
 
-enum paymentMethodEnum{
+export enum paymentMethodEnum{
   CREDIT_CARD = 'credit_card',
   PAYPAL = 'paypal',
   BANK_TRANSFER = 'bank_transfer',
